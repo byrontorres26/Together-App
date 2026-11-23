@@ -1,6 +1,5 @@
 import {Pressable, View, Text, StyleSheet} from "react-native";
 import {ButtonProps, CustomButtonVariant} from "../utils/types/ButtonProps";
-import { use, useEffect, useState } from "react";
 import { ThemeColors, useTheme } from "../contexts/ThemeContext";
 
 
@@ -13,7 +12,7 @@ export default function CustomButton({title, onPressButton, variant = "primary",
 
         <Pressable onPress = {onPressButton} disabled= {disable} style = {styles.button}>
             <View >
-                <Text>{title}</Text>
+                <Text style = {styles.text}>{title}</Text>
             </View>
 
         </Pressable>
@@ -34,6 +33,12 @@ export default function CustomButton({title, onPressButton, variant = "primary",
                 borderRadius: 8,
                 alignItems: 'center',
                 justifyContent: 'center',
+                
+            },
+            text:{
+                color: variant === 'primary' ? colors.card: variant === 'secondary' ? 
+                colors.primarydark : colors.primaryred,
+                fontFamily: 'Figtree_700Bold',
             }
 
         })
