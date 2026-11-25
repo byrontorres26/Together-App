@@ -3,11 +3,16 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { ThemeColors, useTheme } from '../../src/contexts/ThemeContext'
 import CustomButton from '../../src/components/CustomButton'
 import { WelcomeIllustration } from '../../src/components/WelcomeIllustration'
+import { RootStackParamList } from '../navigation/StackNavigation'
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
 
+type Props = NativeStackScreenProps<RootStackParamList, 'Welcome'>
 
-export default function Welcome() {
+export default function Welcome({navigation}:Props) {
   const { colors } = useTheme()
   const styles = getStyles(colors)
+
+  const handleLogin = () => navigation.navigate('Login')
 
   return (
     <SafeAreaView style={styles.screen} edges={['top', 'bottom']}>
@@ -48,7 +53,7 @@ export default function Welcome() {
         <CustomButton
           title="Ya tengo cuenta"
           variant="secondary"
-          onPressButton={() => {}}
+          onPressButton={handleLogin}
         />
       </View>
     </SafeAreaView>
