@@ -13,6 +13,7 @@ export default function Welcome({navigation}:Props) {
   const styles = getStyles(colors)
 
   const handleLogin = () => navigation.navigate('Login')
+  const handleRegister = () => navigation.navigate('Register')
 
   return (
     <SafeAreaView style={styles.screen} edges={['top', 'bottom']}>
@@ -47,7 +48,7 @@ export default function Welcome({navigation}:Props) {
         <CustomButton
           title="Crear cuenta"
           variant="primary"
-          onPressButton={() => {}}
+          onPressButton={handleRegister}
         />
 
         <CustomButton
